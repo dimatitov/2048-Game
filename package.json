@@ -4,7 +4,8 @@
   "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.2.2",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^9.0.2",
@@ -50,6 +52,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.foreachright": "^4.4.0",
+    "lodash.times": "^4.3.2",
+    "mobx": "^5.15.5"
   }
 }

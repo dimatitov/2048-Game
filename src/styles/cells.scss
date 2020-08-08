@@ -1,0 +1,83 @@
+
+#playfield{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  grid-row-gap: 10px;
+  width: 450px;
+  height: 450px;
+  background: gray;
+  border-radius: 10px;
+}
+
+
+.thing{
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  color: gray;
+  text-align: center;
+  font: 48px/96px Arial;
+  border-radius: 10px;
+  align-items: center;
+  margin-left: 7px;
+}
+.thing.t2{
+  background: #ffffff;
+}
+.thing.t4{
+  background: #e6ffff;
+}
+.thing.t8{
+  background: #ccffff;
+}
+.thing.t16{
+  background: #b3ffff;
+}
+.thing.t32{
+  background: #99ffff;
+}
+.thing.t64{
+  background: #80ffff;
+}
+.thing.t128{
+  background: #4dffff;
+}
+.thing.t256{
+  background: #00ffff;
+}
+.thing.t512{
+  background: #00e6e6;
+}
+.thing.t1024{
+  background: #00cccc;
+  font: 43px/95px Arial;
+}
+.thing.t2048{
+  background: #00b3b3;
+  font: 43px/95px Arial;
+}
+.thing.t4096{
+  background: #009999;
+  font: 35px/95px Arial;
+}
+.thing.t8192{
+  background: #008080;
+  font: 35px/95px Arial;
+}
+.thing.t16384{
+  background: #006666;
+  font: 35px/95px Arial;
+}
+.thing.t32768{
+  background: #004d4d;
+  font: 35px/95px Arial;
+}
+.thing.t65536{
+  background: #003333;
+  font: 35px/95px Arial;
+}
+.thing.t131072{
+  background: #001a1a;
+  font: 29px/95px Arial;
+}
