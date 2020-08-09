@@ -9,6 +9,3 @@ reaction(
   },
 )
 
-// autorun(() => {
-//   console.log('autorun change state')
-// })

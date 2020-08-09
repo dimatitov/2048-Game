@@ -2,7 +2,7 @@ import { getCellElementsByMatrixState } from './utils/getCellElementsByMatrixSta
 import { addCellWithRandomPositionToMatrix } from "./utils/addCellWithRandomPositionToMatrix";
 import { controller } from './controller'
 import { MAP_DIRECTION_TO_KEY_CODE } from './constants/mapKeyCodeToDirection'
-import { state } from './state'
+import { eventInitialize } from './state'
 
 const initialize = () => {
   const initialState = addCellWithRandomPositionToMatrix([
@@ -18,8 +18,11 @@ const initialize = () => {
   cellElements.forEach((cell) => {
     playFieldElement.appendChild(cell)
   })
+  console.log('playFieldElement', playFieldElement)
+  console.log('cellElements', cellElements)
+  eventInitialize()
 
-  state.initialize()
+  console.log('eventInitialize', eventInitialize)
 
   document.addEventListener('keyup', (event) => {
     switch (event.keyCode) {

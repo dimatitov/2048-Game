@@ -1,49 +1,45 @@
-import { observable, action, toJS } from 'mobx'
+import { createStore, createEvent } from 'effector'
 import { addCellWithRandomPositionToMatrix } from "./utils/addCellWithRandomPositionToMatrix";
 import { turnMatrixToLeftFrom, turnMatrixFromLeftTo } from './utils/turnMatrix'
 import { moveAndStackValues } from './utils/moveAndStackValues'
+import { getCellElementsByMatrixState } from './utils/getCellElementsByMatrixState'
 
-export const state = observable({
-  matrix: [
+export const matrixState = createStore([
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0]
-  ],
+])
 
-  initialize() {
-    this.matrix = addCellWithRandomPositionToMatrix(this.matrix)
-  },
+export const eventInitialize = createEvent('eventInitialize');
 
-  addCellWithRandomPositionToMatrix() {
-    this.matrix = addCellWithRandomPositionToMatrix(this.matrix)
-  },
+export const eventAddCellWithRandomPositionToMatrix = createEvent('eventAddCellWithRandomPositionToMatrix')
 
-  setMatrix(matrix) {
-    this.matrix = matrix
-  },
+export const eventTurnMatrixToLeftFrom = createEvent('eventTurnMatrixToLeftFrom')
 
-  turnMatrixToLeftFrom(from) {
-    console.log('turnMatrixToLeftFrom')
-    this.matrix = turnMatrixToLeftFrom(this.matrix, from)
-    console.log('this.matrix', toJS(this.matrix))
-  },
+export const eventTurnMatrixFromLeftTo = createEvent('eventTurnMatrixFromLeftTo')
 
-  turnMatrixFromLeftTo(to) {
-    console.log('turnMatrixFromLeftTo')
-    this.matrix = turnMatrixFromLeftTo(this.matrix, to)
-    console.log('this.matrix', toJS(this.matrix))
-  },
+export const eventMoveAndStackValues = createEvent('eventMoveAndStackValues')
 
-  moveAndStack() {
-    console.log('moveAndStack')
-    this.matrix = moveAndStackValues(this.matrix)
-    console.log('this.matrix', toJS(this.matrix))
-  },
-}, {
-  initialize: action,
-  setMatrix: action,
-  turnMatrixToLeftFrom: action,
-  turnMatrixFromLeftTo: action,
-  moveAndStack: action,
+
+
+matrixState.on(eventInitialize, (matrix) => addCellWithRandomPositionToMatrix(matrix))
+
+matrixState.on(eventAddCellWithRandomPositionToMatrix, (matrix) => addCellWithRandomPositionToMatrix(matrix))
+
+matrixState.on(eventTurnMatrixToLeftFrom, (matrix, from) => turnMatrixToLeftFrom(matrix, from))
+
+matrixState.on(eventTurnMatrixFromLeftTo, (matrix, to) => turnMatrixFromLeftTo(matrix, to))
+
+matrixState.on(eventMoveAndStackValues, (matrix) => moveAndStackValues(matrix))
+
+
+matrixState.watch((matrix, payload) => {
+  const cellElements = getCellElementsByMatrixState(matrix)
+  const playFieldElement = document.getElementById('playfield')
+  playFieldElement.innerHTML = ''
+
+  cellElements.forEach((cell) => {
+    playFieldElement.appendChild(cell)
+  })
 })
