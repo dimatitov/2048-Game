@@ -1,30 +1,30 @@
-import { state } from './state'
+import { eventInitialize, eventAddCellWithRandomPositionToMatrix, eventMoveAndStackValues, eventTurnMatrixFromLeftTo, eventTurnMatrixToLeftFrom } from './state'
 import { DIRECTIONS } from './constants/directions'
 
 export const controller = {
   handlePressLeftArrow: () => {
-    state.moveAndStack()
-    state.addCellWithRandomPositionToMatrix()
+    eventMoveAndStackValues()
+    eventAddCellWithRandomPositionToMatrix()
   },
 
   handlePressTopArrow: () => {
-    state.turnMatrixToLeftFrom(DIRECTIONS.TOP)
-    state.moveAndStack()
-    state.turnMatrixFromLeftTo(DIRECTIONS.TOP)
-    state.addCellWithRandomPositionToMatrix()
+    eventTurnMatrixToLeftFrom(DIRECTIONS.TOP)
+    eventMoveAndStackValues()
+    eventTurnMatrixFromLeftTo(DIRECTIONS.TOP)
+    eventAddCellWithRandomPositionToMatrix()
   },
 
   handlePressRightArrow: () => {
-    state.turnMatrixToLeftFrom(DIRECTIONS.RIGHT)
-    state.moveAndStack()
-    state.turnMatrixFromLeftTo(DIRECTIONS.RIGHT)
-    state.addCellWithRandomPositionToMatrix()
+    eventTurnMatrixToLeftFrom(DIRECTIONS.RIGHT)
+    eventMoveAndStackValues()
+    eventTurnMatrixFromLeftTo(DIRECTIONS.RIGHT)
+    eventAddCellWithRandomPositionToMatrix()
   },
 
   handlePressBottomArrow: () => {
-    state.turnMatrixToLeftFrom(DIRECTIONS.BOTTOM)
-    state.moveAndStack()
-    state.turnMatrixFromLeftTo(DIRECTIONS.BOTTOM)
-    state.addCellWithRandomPositionToMatrix()
+    eventTurnMatrixToLeftFrom(DIRECTIONS.BOTTOM)
+    eventMoveAndStackValues()
+    eventTurnMatrixFromLeftTo(DIRECTIONS.BOTTOM)
+    eventAddCellWithRandomPositionToMatrix()
   },
 }

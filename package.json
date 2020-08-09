@@ -53,10 +53,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "core-js": "^3.6.5",
+    "effector": "^21.2.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.foreachright": "^4.4.0",
     "lodash.random": "^3.2.0",
-    "lodash.times": "^4.3.2",
-    "mobx": "^5.15.5"
+    "lodash.times": "^4.3.2"
   }
 }
