@@ -1,7 +1,7 @@
-
 #playfield{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   align-content: center;
   grid-row-gap: 10px;
   width: 450px;
@@ -9,7 +9,6 @@
   background: gray;
   border-radius: 10px;
 }
-
 
 .thing{
   width: 100px;
