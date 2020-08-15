@@ -1,8 +1,8 @@
-import { getCellElementsByMatrixState } from './utils/getCellElementsByMatrixState'
+import { getCellElementsByMatrixState } from './utils/getCellElementsByMatrixState';
 import { addCellWithRandomPositionToMatrix } from "./utils/addCellWithRandomPositionToMatrix";
-import { controller } from './controller'
-import { MAP_DIRECTION_TO_KEY_CODE } from './constants/mapKeyCodeToDirection'
-import { eventInitialize } from './state'
+import { controller } from './controller';
+import { MAP_DIRECTION_TO_KEY_CODE } from './constants/mapKeyCodeToDirection';
+import { eventInitialize } from './state';
 
 const initialize = () => {
   const initialState = addCellWithRandomPositionToMatrix([

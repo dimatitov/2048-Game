@@ -1,12 +1,13 @@
 import {addCellWithRandomPositionToMatrix} from "./addCellWithRandomPositionToMatrix";
+import { v4 as uuidv4 } from 'uuid';
 
 describe('addCellWithRandomPositionToMatrix', () => {
   test('Add cell to empty matrix', () => {
     const initialState = [
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
-      [0, 0, 0, 0],
+      [{value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}],
+      [{value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}],
+      [{value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}],
+      [{value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}, {value: 0, v4: uuidv4}],
     ]
     const matrixWithOneCell = addCellWithRandomPositionToMatrix(initialState)
     const cellsSize = matrixWithOneCell.flat().filter(cell => cell !== 0).length
